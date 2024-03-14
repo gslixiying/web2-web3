@@ -1,0 +1,57 @@
+Web2示例
+python
+# 伪代码示例：Web2应用中的用户生成内容（UGC）  
+  
+class Web2Platform:  
+    def __init__(self):  
+        self.user_data = {}  
+  
+    def user_registers(self, username, password):  
+        # 注册用户  
+        self.user_data[username] = {'password': password, 'content': []}  
+  
+    def user_posts_content(self, username, content):  
+        # 用户发布内容  
+        if username in self.user_data:  
+            self.user_data[username]['content'].append(content)  
+  
+    def platform_owns_data(self):  
+        # 平台拥有用户数据  
+        return True  
+  
+# 使用示例  
+platform = Web2Platform()  
+platform.user_registers('user1', 'password1')  
+platform.user_posts_content('user1', 'This is my first post.')  
+print(platform.user_data['user1']['content'])  # 显示用户发布的内容  
+print(platform.platform_owns_data())  # 显示平台拥有用户数据
+Web3示例
+python
+# 伪代码示例：Web3应用中的去中心化数据管理和智能合约  
+  
+from some_blockchain_library import Blockchain, SmartContract  
+  
+class Web3Application:  
+    def __init__(self, blockchain):  
+        self.blockchain = blockchain  
+        self.user_wallet = None  
+  
+    def user_registers_with_wallet(self, wallet_address):  
+        # 用户使用钱包地址注册  
+        self.user_wallet = wallet_address  
+  
+    def user_posts_content_to_blockchain(self, content):  
+        # 用户将内容发布到区块链  
+        # 这通常是通过一个智能合约来完成的  
+        contract = self.blockchain.get_contract('content_storage')  
+        transaction_id = contract.functions.postContent(self.user_wallet, content).transact()  
+        return transaction_id  
+  
+# 使用示例  
+blockchain = Blockchain()  
+app = Web3Application(blockchain)  
+user_wallet = '0x...'  # 用户的加密钱包地址  
+  
+app.user_registers_with_wallet(user_wallet)  
+content_id = app.user_posts_content_to_blockchain('This is my first post on Web3.')  
+print(f"Content posted with transaction ID: {content_id}")
